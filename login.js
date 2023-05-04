@@ -20,7 +20,7 @@ form.addEventListener("submit", event => {
       })
     .then(data => 
         {var x = document.getElementById("2FA");
-            if(data>0){
+            if(data>=0){
                 x.style.display = "block";
             } else {
                 x.style.display = "none";
