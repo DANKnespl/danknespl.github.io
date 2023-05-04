@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form Example</title>
+</head>
+<body>
+  <h1>Login Form Example</h1>
+  <form id="login-form">
+    <div>
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+      <button type="submit" id="submit">Login</button>
+    </div><br/>
+    <div id="2FA" style="display: none">
+        <label for="FKey">2FA code:</label>
+        <input type="text" id="FKey" name="FKey"><br/>
+        <button type="button" id="2submit" onclick="TFA()">2FA</button>
+    </div>
+  </form>
+  <script type="application/javascript" src="login.js"></script>
+</body>
+</html>

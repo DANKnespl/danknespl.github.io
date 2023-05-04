@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html style="width: 1000px;">
+<head>
+  <meta charset="UTF-8">
+  <title>Account page</title>
+  <script type="application/javascript" src="account.js"></script>
+</head>
+<body>
+  <main>
+    <section style="display: grid;grid-template-columns: 0.2fr 0.8fr;gap: 1em;">
+        <form onsubmit="return false">
+            <button type="button" id="pay" onclick="payClick()">Pay Money</button>
+            <button type="button" id="add" onclick="addClick()">Add Money</button>
+        </form>
+        <p id="accountInfo">
+        </p>
+    </section>
+    <section>
+        <p id="transactionList">
+
+        </p>
+    </section>
+  </main>
+</body>
+</html>
