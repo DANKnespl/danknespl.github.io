@@ -18,16 +18,13 @@ async function addClick(){
     let result = await fetch("https://stinbanking.ey.r.appspot.com/add?"+new URLSearchParams({amount: 0, abr: "XXX", userID: userID}), {mode: 'cors'});
     let responseText = await result.text();
     console.log(responseText)
-    if (responseText != "uspesne provedeno"){
-        alert(responseText)
-    }
+    alert(responseText)
+    
 };
 
 async function payClick(){
     let result = await fetch("https://stinbanking.ey.r.appspot.com/pay?"+new URLSearchParams({amount: 0, abr: "XXX", userID: userID}), {mode: 'cors'});
     let responseText = await result.text();
     console.log(responseText)
-    if (responseText != "uspesne provedeno"){
-        alert(responseText)
-    }
+    alert(responseText)
 }

@@ -24,6 +24,7 @@ form.addEventListener("submit", event => {
                 x.style.display = "block";
             } else {
                 x.style.display = "none";
+                alert("špatné přihlašovací údaje")
             }
         console.log(data);
         userID=data;
@@ -33,19 +34,17 @@ form.addEventListener("submit", event => {
     console.log(data.password)
 });
 
-function TFA(){
+async function TFA(){
     event.preventDefault(); // Prevent the form from submitting
-    fetch("https://stinbanking.ey.r.appspot.com/2FA?"+new URLSearchParams({
+    let result = await fetch("https://stinbanking.ey.r.appspot.com/2FA?"+new URLSearchParams({
       userID: userID,
       FKey: form.elements.FKey.value
       }), {mode: 'cors'})
-      .then(response => {
-          if (response.ok) {
-            window.location.href = "account.html?userID="+userID
-          } else {
-            throw new Error('API request failed'); // If the response is not successful, throw an error
-          }
-        })
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
+    let responseText = await result.text();
+    console.log(responseText)
+    if (responseText == "false"){
+      alert("Nešlo autentizovat")
+    }else{
+      window.location.href = "account.html?userID="+userID
+    }
   };
