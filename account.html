@@ -8,9 +8,13 @@
 <body>
   <main>
     <section style="display: grid;grid-template-columns: 0.2fr 0.8fr;gap: 1em;">
-        <form onsubmit="return false">
+        <form onsubmit="return false" id="form">
             <button type="button" id="pay" onclick="payClick()">Pay Money</button>
-            <button type="button" id="add" onclick="addClick()">Add Money</button>
+            <button type="button" id="add" onclick="addClick()">Add Money</button><br/>
+            <label for="amount">Množství peněz:</label>
+            <input type="number" id="amount"/><br/>
+            <label for="abr">Zkratka měny:</label>
+            <input type="text" id="abr"/>
         </form>
         <p id="accountInfo">
         </p>
