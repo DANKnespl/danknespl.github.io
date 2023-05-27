@@ -15,17 +15,22 @@ async function onLoad(){
     document.getElementById("transactionList").innerHTML = newText;
 };
 async function addClick(){
-    var re = new RegExp(/^\d{1,9}$/);
+    var re = new RegExp(/^\d+$/);
+    var re2 = new RegExp(/^\d{1,9}$/);
     const data = {
         amount: form.elements.amount.value,
         abr: form.elements.abr.value
     };
     console.log(re.test(data.amount))
     if(re.test(data.amount)){
-        let result = await fetch("https://stinbanking.ey.r.appspot.com/add?"+new URLSearchParams({amount: data.amount, abr: data.abr, userID: userID}), {mode: 'cors'});
-        let responseText = await result.text();
-        console.log(responseText)
-        alert(responseText)
+        if(re2.test(data.amount)){
+            let result = await fetch("https://stinbanking.ey.r.appspot.com/add?"+new URLSearchParams({amount: data.amount, abr: data.abr, userID: userID}), {mode: 'cors'});
+            let responseText = await result.text();
+            console.log(responseText)
+            alert(responseText)
+        }else{
+            alert("Maximální vklad 999999999")
+        }
     }else{
         alert("Chybné množství peněz")
     }
@@ -33,17 +38,22 @@ async function addClick(){
 };
 
 async function payClick(){
-    var re = new RegExp(/^\d{1,9}$/);
+    var re = new RegExp(/^\d+$/);
+    var re2 = new RegExp(/^\d{1,9}$/);
     const data = {
         amount: form.elements.amount.value,
         abr: form.elements.abr.value
     };
     console.log(re.test(data.amount))
     if(re.test(data.amount)){
-        let result = await fetch("https://stinbanking.ey.r.appspot.com/pay?"+new URLSearchParams({amount: data.amount, abr: data.abr, userID: userID}), {mode: 'cors'});
-        let responseText = await result.text();
-        console.log(responseText)
-        alert(responseText)
+        if(re2.test(data.amount)){
+            let result = await fetch("https://stinbanking.ey.r.appspot.com/pay?"+new URLSearchParams({amount: data.amount, abr: data.abr, userID: userID}), {mode: 'cors'});
+            let responseText = await result.text();
+            console.log(responseText)
+            alert(responseText)
+        }else{
+            alert("Maximální platba 999999999")
+        }
     }else{
         alert("Chybné množství peněz")
     }
