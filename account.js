@@ -15,7 +15,7 @@ async function onLoad(){
     document.getElementById("transactionList").innerHTML = newText;
 };
 async function addClick(){
-    var re = new RegExp(/^\d+$/);
+    var re = new RegExp(/^\d{1,9}$/);
     const data = {
         amount: form.elements.amount.value,
         abr: form.elements.abr.value
@@ -33,7 +33,7 @@ async function addClick(){
 };
 
 async function payClick(){
-    var re = new RegExp(/^\d+$/);
+    var re = new RegExp(/^\d{1,9}$/);
     const data = {
         amount: form.elements.amount.value,
         abr: form.elements.abr.value
